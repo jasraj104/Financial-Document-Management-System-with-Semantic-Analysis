@@ -1,0 +1,2 @@
+# Financial-Document-Management-System-with-Semantic-Analysis
+The system uses REST APIs for authentication, document management, and querying. When a document is uploaded it is processed using a RAG ingestion pipeline where text is chunked, embedded, and stored in a vector database. The /documents endpoint performs semantic retrieval over these embeddings and uses an LLM to generate context-aware answers.
