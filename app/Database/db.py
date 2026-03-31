@@ -6,7 +6,7 @@ DATABASE_URL = "sqlite:///./financial.db"
 
 # Create engine (connection)
 engine = create_engine(
-    DATABASE_URL, connect_args={"check_same_thread": False}
+    DATABASE_URL, connect_args={"check_same_thread": False, "timeout": 30}
 )
 
 # Session (used to talk to DB)

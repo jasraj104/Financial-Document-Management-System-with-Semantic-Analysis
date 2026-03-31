@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from app.Database.models import User
 from app.core.security import hash_password, verify_password, create_access_token
 
+
 def register_user(data, db: Session):
     user = User(
         username=data.username,
@@ -10,6 +11,8 @@ def register_user(data, db: Session):
     )
     db.add(user)
     db.commit()
+    db.refresh(user)
+    
     return user
 
 def login_user(data, db: Session):

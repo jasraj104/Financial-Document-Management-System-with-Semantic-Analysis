@@ -32,7 +32,3 @@ def check_role(required_role: str):
     
     return role_checker
 
-existing = db.query(User).filter(User.username == data.username).first()
-
-if existing:
-    raise HTTPException(status_code=400, detail="User already exists")

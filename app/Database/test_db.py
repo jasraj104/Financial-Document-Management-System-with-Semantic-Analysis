@@ -1,8 +1,13 @@
-from db import engine
-from sqlalchemy import inspect
+from db import SessionLocal
+from crud import create_document, get_documents
 
-inspector = inspect(engine)
+db = SessionLocal()
 
-tables = inspector.get_table_names()
+create_document(db, "Test Doc", "This is content", "/files/doc1.txt")
 
-print("Tables in DB:", tables)
+docs = get_documents(db)
+
+for d in docs:
+    print(d.title, d.content)
+
+db.close()
